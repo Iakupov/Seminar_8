@@ -21,12 +21,12 @@ void PrintArray(int[,] array)
         Console.WriteLine();
     }
 }
-int MaxSumRow(int[,] array)
+int MinSumRow(int[,] array)
 {
     int[][] splitedArray = new int[array.GetLength(0)][];
     int[] sumRows = new int[array.GetLength(0)];
-    int max = 0;
-    int maxIndex = 0;
+    int min = 0;
+    int minIndex = 0;
 
     for (int i = 0; i < array.GetLength(0); i++)
         splitedArray[i] = new int[array.GetLength(1)];
@@ -39,17 +39,17 @@ int MaxSumRow(int[,] array)
         }
         sumRows[i] = splitedArray[i].Sum();
     }
-    max = sumRows[0];
+    min = sumRows[0];
 
     for (int i = 0; i < array.GetLength(0); i++)
     {
-        if (max < sumRows[i])
+        if (min < sumRows[i])
         {
-          max = sumRows[i];
-          maxIndex=i;
+          min = sumRows[i];
+          minIndex=i;
         }
     }
-    return maxIndex+1;
+    return minIndex+1;
 }
 
 Console.WriteLine("Введите высоту и ширину массива через пробел:");
@@ -59,7 +59,7 @@ int[] range = Console.ReadLine().Split().Select(int.Parse).ToArray();
 
 int[,] array = GenerateArray(size[0], size[1], range[0], range[1]);
 PrintArray(array);
-Console.WriteLine("Строка с максимальной суммой элементов: "+MaxSumRow(array));
+Console.WriteLine("Строка с минимальной суммой элементов: "+MinSumRow(array));
 
 
 
