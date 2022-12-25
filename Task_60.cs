@@ -70,7 +70,7 @@ void PrintArray(int[,,] array)
 Console.WriteLine("Введите высоту, ширину и глубину  массива через пробел:");
 int[] sizeA = Console.ReadLine()!.Split().Select(int.Parse).ToArray();
 int[,,] arrayA =new int[sizeA[0], sizeA[1], sizeA[2]];
-if (sizeA[0]*sizeA[1]*sizeA[2]<=100)
+if (sizeA[0]*sizeA[1]*sizeA[2]<=90)
 arrayA = GenerateArray(sizeA[0], sizeA[1], sizeA[2], 10, 100);
 else Console.WriteLine("Превышение по размеру");
 PrintArray(arrayA);
